@@ -10,12 +10,61 @@ public class Hero {
     static String copyright;//类属性，静态属性，所有对象都共享一个值
 	*/
 	
+	public String name;
+    protected float hp;
+  
+    private static void battleWin(){
+        System.out.println("battle win");
+    }
+     
+    //敌方的水晶
+    static class EnemyCrystal{
+        int hp=5000;
+         
+        //如果水晶的血量为0，则宣布胜利
+        public void checkIfVictory(){
+            if(hp==0){
+                Hero.battleWin();
+                 
+                //静态内部类不能直接访问外部类的对象属性
+                System.out.println(name + " win this game");
+            }
+        }
+    }
+     
+	
+	
+	
+	
 	/*
     String name; //姓名    
     float hp; //血量     
     float armor; //护甲    
     int moveSpeed; //移动速度
-    */
+	*/
+	
+    
+    /*
+	//参数名和属性名一样
+	//在方法体中，只能访问到参数name
+	public void setName1(String name){
+		name = name;
+	}
+
+	//为了避免setName1中的问题，参数名不得不使用其他变量名
+	public void setName2(String heroName){
+		name = heroName;
+	}
+
+	//通过this访问属性
+	public void setName3(String name){
+		//name代表的是参数name
+		//this.name代表的是属性name
+		this.name = name;
+	}
+	*/
+	
+
 	
     /*
     //打印内存中的虚拟地址
@@ -51,9 +100,23 @@ public class Hero {
     }
     */
 					
-	public static void main(String[] arg){	
-	
+	public static void main(String[] arg){
+		/*
+		Hero  h =new Hero();
+
+		h.setName1("teemo");
+		System.out.println(h.name);
+
+		h.setName2("garen");
+		System.out.println(h.name);
+
+		h.setName3("死歌");
+		System.out.println(h.name);
+		*/
 		
+		
+		Hero.EnemyCrystal crystal = new Hero.EnemyCrystal();
+        crystal.checkIfVictory();
 		
 		
 		
