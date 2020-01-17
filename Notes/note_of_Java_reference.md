@@ -106,7 +106,7 @@ class Circle extends Shape {
     }
 }
 ```
-
+---
 
 
 ## Java抽象类
@@ -130,6 +130,7 @@ class Circle extends Shape {
     但是接口中声明的属性，只能是public、静态、final的，即便没有显式的声明
 注：抽象类和接口都可以有实体方法。 接口中的实体方法，叫做**默认方法**
 
+---
 
 ## Java内部类
 
